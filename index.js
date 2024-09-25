@@ -1,14 +1,20 @@
-const core = require('@actions/core');
-const github = require('@actions/github');
-const path = require('path');
-const { exec } = require('child_process');
+import * as core from '@actions/core';
+import * as github from '@actions/github';
+import path from 'path';
+import { exec } from 'child_process';
+import { fileURLToPath } from 'url';
 
-const eslintConfigPath = path.join(__dirname, 'eslint.config.mjs');
+// Fix __dirname for ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Define the path to the ESLint configuration relative to the Action's directory
+const eslintConfigPath = path.join(__dirname, 'eslint.config.mjs'); // Make sure this matches your ESLint config filename
 
 async function run() {
     try {
         // Set up the scanning tools or run your custom scanning logic
-        exec(`npx eslint --config ${eslintConfigPath} .`, (error, stdout, stderr) => {  // Use backticks here
+        exec(`npx eslint --config ${eslintConfigPath} .`, (error, stdout, stderr) => {
             if (error) {
                 core.setFailed(`Error: ${error.message}`);
                 return;
