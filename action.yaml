@@ -1,0 +1,10 @@
+name: "Code Certification Action"
+description: "Certifies that the repository does not contain obfuscated or malicious code."
+author: "Ian Dorion"
+inputs:
+  repo-token:
+    description: "GitHub token"
+    required: true
+runs:
+  using: "node16"
+  main: "index.js"
