@@ -31103,8 +31103,8 @@ const { exec } = __nccwpck_require__(5317);
 
 async function run() {
     try {
-        // Setup the scanning tools or run your custom scanning logic
-        exec('npx eslint .', (error, stdout, stderr) => {
+        // Set up the scanning tools or run your custom scanning logic
+        exec('npx eslint --config eslint.config.js .', (error, stdout, stderr) => {
             if (error) {
                 core.setFailed(`Error: ${error.message}`);
                 return;
