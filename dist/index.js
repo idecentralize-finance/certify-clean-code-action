@@ -31099,12 +31099,15 @@ module.exports = parseParams
 var __webpack_exports__ = {};
 const core = __nccwpck_require__(7484);
 const github = __nccwpck_require__(3228);
+const path = __nccwpck_require__(6928);
 const { exec } = __nccwpck_require__(5317);
+
+const eslintConfigPath = __nccwpck_require__.ab + "eslint.config.js";
 
 async function run() {
     try {
         // Set up the scanning tools or run your custom scanning logic
-        exec('npx eslint --config eslint.config.js .', (error, stdout, stderr) => {
+        exec(`npx eslint --config ${eslintConfigPath} .`, (error, stdout, stderr) => {  // Use backticks here
             if (error) {
                 core.setFailed(`Error: ${error.message}`);
                 return;

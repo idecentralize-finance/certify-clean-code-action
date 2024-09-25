@@ -1,11 +1,14 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
+const path = require('path');
 const { exec } = require('child_process');
+
+const eslintConfigPath = path.join(__dirname, 'eslint.config.js');
 
 async function run() {
     try {
         // Set up the scanning tools or run your custom scanning logic
-        exec('npx eslint --config eslint.config.js .', (error, stdout, stderr) => {
+        exec(`npx eslint --config ${eslintConfigPath} .`, (error, stdout, stderr) => {  // Use backticks here
             if (error) {
                 core.setFailed(`Error: ${error.message}`);
                 return;
