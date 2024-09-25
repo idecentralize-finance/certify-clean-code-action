@@ -3,7 +3,7 @@ const github = require('@actions/github');
 const path = require('path');
 const { exec } = require('child_process');
 
-const eslintConfigPath = path.join(__dirname, 'eslint.config.js');
+const eslintConfigPath = path.join(__dirname, 'eslint.config.mjs');
 
 async function run() {
     try {
