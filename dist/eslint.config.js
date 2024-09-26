@@ -1,4 +1,5 @@
 // eslint.config.js
+const path = require('path');
 const js = require('@eslint/js');
 
 module.exports = [
