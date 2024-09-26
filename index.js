@@ -14,7 +14,8 @@ const eslintConfigPath = path.join(__dirname, 'eslint.config.mjs'); // Make sure
 async function run() {
     try {
         // Set up the scanning tools or run your custom scanning logic
-        execSync(`node --loader esm npx eslint --config ${eslintConfigPath} --ext .js .`, { stdio: 'inherit' });
+        execSync(`npx eslint --config ${eslintConfigPath} --ext .js .`, { stdio: 'inherit' });
+
 
         // Add more scanning steps as needed
 

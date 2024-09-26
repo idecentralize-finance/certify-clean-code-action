@@ -30965,7 +30965,8 @@ const eslintConfigPath = __nccwpck_require__.ab + "eslint.config.mjs"; // Make s
 async function run() {
     try {
         // Set up the scanning tools or run your custom scanning logic
-        (0,external_child_process_namespaceObject.execSync)(`node --loader esm npx eslint --config ${eslintConfigPath} --ext .js .`, { stdio: 'inherit' });
+        (0,external_child_process_namespaceObject.execSync)(`npx eslint --config ${eslintConfigPath} --ext .js .`, { stdio: 'inherit' });
+
 
         // Add more scanning steps as needed
 
