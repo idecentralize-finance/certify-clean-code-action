@@ -30965,7 +30965,7 @@ const eslintConfigPath = __nccwpck_require__.ab + "eslint.config.mjs"; // Make s
 async function run() {
     try {
         // Set up the scanning tools or run your custom scanning logic
-        (0,external_child_process_namespaceObject.exec)(`npx eslint --config ${eslintConfigPath} .`, (error, stdout, stderr) => {
+        (0,external_child_process_namespaceObject.exec)(`npx eslint --config ${eslintConfigPath} --ext .js .`, (error, stdout, stderr) => {
             if (error) {
                 core.setFailed(`Error: ${error.message}`);
                 return;

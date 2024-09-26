@@ -14,7 +14,7 @@ const eslintConfigPath = path.join(__dirname, 'eslint.config.mjs'); // Make sure
 async function run() {
     try {
         // Set up the scanning tools or run your custom scanning logic
-        exec(`npx eslint --config ${eslintConfigPath} .`, (error, stdout, stderr) => {
+        exec(`npx eslint --config ${eslintConfigPath} --ext .js .`, (error, stdout, stderr) => {
             if (error) {
                 core.setFailed(`Error: ${error.message}`);
                 return;
