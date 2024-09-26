@@ -1,4 +1,4 @@
-// eslint.config.mjs
+// eslint.config.js
 import js from '@eslint/js';
 
 export default [
