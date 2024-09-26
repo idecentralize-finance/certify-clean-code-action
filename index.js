@@ -1,7 +1,7 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
 import path from 'path';
-import { exec } from 'child_process';
+import { execSync } from 'child_process';
 import { fileURLToPath } from 'url';
 
 // Fix __dirname for ES Modules
@@ -14,17 +14,7 @@ const eslintConfigPath = path.join(__dirname, 'eslint.config.mjs'); // Make sure
 async function run() {
     try {
         // Set up the scanning tools or run your custom scanning logic
-        exec(`npx eslint --config ${eslintConfigPath} --ext .js .`, (error, stdout, stderr) => {
-            if (error) {
-                core.setFailed(`Error: ${error.message}`);
-                return;
-            }
-            if (stderr) {
-                core.setFailed(`Standard Error: ${stderr}`);
-                return;
-            }
-            console.log(`ESLint Output: ${stdout}`);
-        });
+        execSync(`node --loader esm npx eslint --config ${eslintConfigPath} --ext .js .`, { stdio: 'inherit' });
 
         // Add more scanning steps as needed
 
